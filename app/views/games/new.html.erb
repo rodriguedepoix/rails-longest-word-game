@@ -1,0 +1,28 @@
+<h1>New game</h1>
+
+<div class="container">
+
+ <div class="element">
+   <p> Create the longest word with these letters : </p>
+ </div>
+
+ <div class="element">
+   <ul>
+     <% @letters.each do |letter| %>
+       <li><%= letter %></li>
+     <% end %>
+   </ul>
+ </div>
+
+ <div class="element">
+   <form action="/score" method="post">
+   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+   <%= hidden_field_tag :letters, @letters %>
+
+     <input type="text" name="word" placeholder="Play">
+
+     <input type="submit">
+   </form>
+ </div>
+
+</div>
